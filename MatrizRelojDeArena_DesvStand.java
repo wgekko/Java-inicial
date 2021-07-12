@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author WALTER GOMEZ
  */
-public class MatrizRelojDeArena2 {
+public class MatrizRelojDeArena_DesvStand {
 
     /**
      * @param args the command line arguments
@@ -28,7 +28,7 @@ public class MatrizRelojDeArena2 {
         } while (n % 2 == 0 || n < 10);
 
         int m[][] = new int[n][n];
-        int me = (n / 2) + 1; 
+        int me = (n / 2) + 1; int  a= (n*n); int vec[] = new int[a];
         String maux[][] = new String[n][n];
         // System.out.println("   ---    la matriz original    ---    "); // llenamos la matriz original 
         for (int i = 0; i < n; i++) {
@@ -44,7 +44,7 @@ public class MatrizRelojDeArena2 {
         // lleno la matriz auxiliar con los datos de la matriz principal
         for (int i = 0; i < me; i++) {
             for (int j = i; j < n - i; j++) {
-               
+                vec[i]= m[i][j] ; vec[i]=m[n - i - 1][j];
                 maux[i][j] = "" + m[i][j];
                 maux[n - i - 1][j] = "" + m[n - i - 1][j];
             }
@@ -86,6 +86,32 @@ public class MatrizRelojDeArena2 {
             }
         }
            System.out.println("---------------------------------------------------------");
-         
+           desvStand(vec,a);
+    }
+    public static void desvStand (  int vec [], int  a){
+          DecimalFormat df = new DecimalFormat("###.##");
+		//Media
+		double media;
+		double suma = 0;
+		for (double i: vec) {
+			suma = suma + i;
+		}
+		media = suma / a;
+		System.out.println("la media es " +df.format( media));
+		
+		//Varianza
+		double varianza = 0;
+		double sumatoria;
+		for(int i = 0; i<a; i++) {
+			sumatoria = Math.pow(vec[i] - media, 2);
+			varianza = varianza + sumatoria;
+		}
+		varianza = varianza / (a-1);
+		
+		//Desviacion
+		double desviacion;
+		desviacion = Math.sqrt(varianza);
+		System.out.println("La desviacion estandar es " + df.format(desviacion));
+        
     }
 }
