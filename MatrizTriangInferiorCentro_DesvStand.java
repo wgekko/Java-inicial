@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author WALTER GOMEZ
  */
-public class MatrizRelojDeArena_DesvStand {
+public class MatrizTriangInferiorCentro_DesvStand {
      
     /**
      * @param args the command line arguments
@@ -50,14 +50,14 @@ public class MatrizRelojDeArena_DesvStand {
         for (int i = 0; i < me; i++) {
             for (int j = i; j < n - i; j++) {
                
-                maux[i][j] = "" + m[i][j];
-                vector.add( Integer.parseInt(maux[i][j])); 
+               // maux[i][j] = "" + m[i][j];
+               // vector.add( Integer.parseInt(maux[i][j])); 
                 maux[n - i - 1][j] = "" + m[n - i - 1][j];
                 vector.add(Integer.parseInt(maux[n - i - 1][j]));
             }
         }
         System.out.println("---------------------------------------------------------"); // mostramos la dos matrices juntas 
-        System.out.println("  -  Matriz inicial - \t\t- Matriz reloj de arena -    ");
+        System.out.println("  -  Matriz inicial - \t\t- Matriz Triang. Inferior -    ");
 
         int colContarMatriz = m[0].length;
         for (int x1 = 0, x2 = 0; x1 < m.length || x2 < maux.length; x1++, x2++) {
@@ -93,7 +93,10 @@ public class MatrizRelojDeArena_DesvStand {
             }
         }
            System.out.println("---------------------------------------------------------\n");
-   
+           //System.out.println(vector.size()); 
+           //for(Integer e: vector ){
+             //     System.out.print(e);
+           //}     
           int a= vector.size();
 		//Media
 		double media;

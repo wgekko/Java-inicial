@@ -48,7 +48,7 @@ public class zombie {
         System.out.println("...");     
         for (int i = 0; i <= 2; i++) {
            retardarSegundo();
-            System.out.println("un momento se está procesando la secuencia de ADM...");
+            System.out.println("un momento se está procesando la secuencia de ADN...");
            retardarSegundo();
         }
         secuencia(sec,t);
